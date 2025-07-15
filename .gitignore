@@ -1,0 +1,8 @@
+# Compilation
+*/bin
+*/obj
+
+
+# Other
+*.idea
+*.vscode
