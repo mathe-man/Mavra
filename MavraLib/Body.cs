@@ -14,7 +14,7 @@ public class Body
 	public Vector4 Color    { get; set; } = new Vector4(1, 1, 1, 1);	
 
 
-	public Body(float mass, Vector2 position, float radius = 10f, Vector2? velocity = null)
+	public Body(float mass, Vector2 position, float radius = 1f, Vector2? velocity = null)
 	{
 		this.Mass     = mass;
 		this.Radius   = radius;
@@ -23,11 +23,22 @@ public class Body
 	}
 	public Body CalculateNextState(Universe universe)
 	{
-		var next = this;
-		next.Position += Vector2.One * universe.GravitationalConstant;
+		var next = new Body(Mass, Position, Radius, Velocity);
+		next.Name = Name;
+		
+		Vector2 velocity = new();
+		foreach (var body in universe.Bodies)
+			if (this != body)
+				if (MavraMath.DistanceBetween(Position, body.Position) > Radius + body.Radius)
+					velocity += MavraMath.AccelerationFromForce(MavraMath.ForceBetween(this, body, universe), Mass);
+					
+		
+		next.Position += this.Velocity;
+		next.Velocity += velocity;
+		
 		return next;
 	}
 
 	public override string ToString() 
-		=> $"{Name}:  Mass:{Mass:0.###} ; Radius:{Radius:0.###} | Position {Position:0.###} ; Velocity {Velocity:0.###}";
+		=> $"{Name}:  Mass:{Mass:0.###} ; Radius:{Radius:0.###} | Position {Position} ; Velocity {Velocity}";
 }
