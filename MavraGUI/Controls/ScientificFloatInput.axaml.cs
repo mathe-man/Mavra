@@ -65,14 +65,11 @@ namespace MavraGUI.Controls
         private void UpdateValue()
         {
             if (string.IsNullOrEmpty(Mantissa))
-            {
-                Mantissa = "0";
-            }
+	            Mantissa = "0";
 
             if (float.TryParse(Mantissa, NumberStyles.Float, CultureInfo.InvariantCulture, out float mantissa))
-            {
-                Value = mantissa * (float)Math.Pow(10, Exponent);
-            }
+	            Value = mantissa * (float)Math.Pow(10, Exponent);
+            
             else
             {
                 Mantissa = "0";
@@ -82,18 +79,14 @@ namespace MavraGUI.Controls
         }
 
         private void MantissaTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateValue();
-        }
+			=> UpdateValue();
 
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
         {
             base.OnPropertyChanged(change);
 
             if (change.Property == MantissaProperty || change.Property == ExponentProperty)
-            {
-                UpdateValue();
-            }
+	            UpdateValue();
         }
 
         private bool IsValidKey(Key key)
