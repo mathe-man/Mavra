@@ -2,8 +2,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mavraGui="clr-namespace:MavraGUI"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MavraGUI.MainWindow"
+        x:DataType="mavraGui:MainViewModel"
+        x:CompileBindings="True"
         
         Title="MavraGUI">
     
@@ -16,7 +19,7 @@
         <Rectangle Fill="White"/>
             
         <Ellipse x:Name="CenterEllipse" 
-                 Width="100" Height="100"
+                 Width="10" Height="10"
                  Margin="0" Fill="Blue"/>
         
         
@@ -24,8 +27,8 @@
         <Grid Grid.Column="1" Background="#EFEFEF">
             <StackPanel HorizontalAlignment="Center">
                 
-                <TextBox x:Name="tbNameInput"/>
-                <TextBox x:Name="tbMassInput"/>
+                <TextBox x:Name="tbNameInput" Text="{Binding Name}"/>
+                <TextBox x:Name="tbMassInput" Text="{Binding Mass}"/>
                 <TextBox x:Name="tbXPos"/>
                 <TextBox x:Name="tbYPos"/>
                 <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick"/>
