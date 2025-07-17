@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MavraLib", "MavraLib\MavraL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debug", "Debug\Debug.csproj", "{9C969F42-778D-4159-B8F0-9E51F985E3EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MavraGUI", "MavraGUI\MavraGUI.csproj", "{9B3243EC-5E09-4FF7-A6AA-4C8BFBAE1458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9C969F42-778D-4159-B8F0-9E51F985E3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C969F42-778D-4159-B8F0-9E51F985E3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C969F42-778D-4159-B8F0-9E51F985E3EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B3243EC-5E09-4FF7-A6AA-4C8BFBAE1458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B3243EC-5E09-4FF7-A6AA-4C8BFBAE1458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B3243EC-5E09-4FF7-A6AA-4C8BFBAE1458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B3243EC-5E09-4FF7-A6AA-4C8BFBAE1458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
