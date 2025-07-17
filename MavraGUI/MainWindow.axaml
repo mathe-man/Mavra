@@ -4,6 +4,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MavraGUI.MainWindow"
+        
         Title="MavraGUI">
-    Welcome to Avalonia!
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="2*" MinWidth="200"/>
+        </Grid.ColumnDefinitions>
+        
+        <Rectangle Fill="White"/>
+            
+        <Ellipse x:Name="CenterEllipse" 
+                 Width="100" Height="100"
+                 Margin="0" Fill="Blue"/>
+        
+        
+        <GridSplitter Grid.Column="1" Width="5"/>
+        <Grid Grid.Column="1" Background="#EFEFEF">
+            <StackPanel HorizontalAlignment="Center">
+                
+                
+                <Button Content="Hello"/>
+                
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
 </Window>
