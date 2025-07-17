@@ -9,7 +9,7 @@ public class Universe
 	public float GravitationalConstant;
 
 
-	public Universe(float gravitationalConstant, List<Body>? bodies = null)
+	public Universe(float gravitationalConstant = 6.67408E-11f, List<Body>? bodies = null)
 	{
 		GravitationalConstant = gravitationalConstant;
 
