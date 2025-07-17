@@ -7,7 +7,7 @@
         
         Title="MavraGUI">
     
-    <Grid>
+    <Grid x:Name="Layout">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="2*" MinWidth="200"/>
@@ -24,9 +24,13 @@
         <Grid Grid.Column="1" Background="#EFEFEF">
             <StackPanel HorizontalAlignment="Center">
                 
+                <TextBox x:Name="tbNameInput"/>
+                <TextBox x:Name="tbMassInput"/>
+                <TextBox x:Name="tbXPos"/>
+                <TextBox x:Name="tbYPos"/>
+                <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick"/>
                 
-                <Button Content="Hello"/>
-                
+                <TextBlock x:Name="tbErrorIndicator" Background="Red"></TextBlock>
             </StackPanel>
         </Grid>
         
