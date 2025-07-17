@@ -21,5 +21,6 @@ public partial class MainWindow : Window
 
 	private void BtnAddBody_OnClick(object? sender, RoutedEventArgs e)
 	{
+		(DataContext as MainViewModel)?.AddBody();
 	}
 }

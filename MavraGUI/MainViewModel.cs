@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using MavraLib;
 
@@ -79,10 +80,16 @@ public class MainViewModel : INotifyPropertyChanged
 
 
 
+	private Universe _seed = new Universe(6.67408E-11f);
+	private EvolutiveUniverse _evolutiveUniverse;
 	public void AddBody()
 	{
-		// TODO Implement this
-		throw new NotImplementedException();
+		Body b = new Body(Mass, new Vector2(X, Y), Radius);
+		b.Name = string.IsNullOrEmpty(Name) ? "Object" : Name;
+		
+		_seed.Bodies.Add(b);
+		
+		Console.WriteLine(_seed);
 	}
 	
 }

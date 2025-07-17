@@ -29,6 +29,7 @@
             <StackPanel HorizontalAlignment="Stretch" Spacing="5">
                 <TextBox Text="{Binding Name}" Watermark="Object name"/>
                 <controls:ScientificFloatInput Value="{Binding Mass}" Text="Mass"/>
+                <controls:ScientificFloatInput Value="{Binding Radius}" Text="Radius"/>
                 <controls:ScientificFloatInput Value="{Binding X}"    Text="X"/>
                 <controls:ScientificFloatInput Value="{Binding Y}"    Text="Y"/>
                 
