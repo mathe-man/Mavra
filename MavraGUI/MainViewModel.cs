@@ -16,19 +16,7 @@ public class MainViewModel : INotifyPropertyChanged
 	private Universe seed = new Universe(6.67408E-11f);
 	private EvolutiveUniverse evolutiveUniverse;
 
-
-	private bool IsValidFloat(string value)
-	{
-		try
-		{
-			Convert.ToSingle(value);
-			return true;
-		}
-		catch (FormatException e)
-		{ return false; }
-		catch (OverflowException)
-		{ return false; }
-	}
+	
 	
 	
 	private string _name;
@@ -71,11 +59,9 @@ public class MainViewModel : INotifyPropertyChanged
 	{
 		get => _mass;
 		set {
-			Console.WriteLine("Mass Updated");
 			if (Equals(value, _mass)) return;
 			_mass = value;
 			OnPropertyChanged();
-			Console.WriteLine(_mass);
 		} 
 	}  
 	
@@ -89,5 +75,14 @@ public class MainViewModel : INotifyPropertyChanged
 			_radius = value;
 			OnPropertyChanged();
 		} 
-	}  
+	}
+
+
+
+	public void AddBody()
+	{
+		// TODO Implement this
+		throw new NotImplementedException();
+	}
+	
 }
