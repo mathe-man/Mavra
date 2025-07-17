@@ -21,6 +21,7 @@ public partial class MainWindow : Window
 
 	private void BtnAddBody_OnClick(object? sender, RoutedEventArgs e)
 	{
+		/*
 		float mass;
 		float x, y;
 		try
@@ -46,6 +47,6 @@ public partial class MainWindow : Window
 		
 		Layout.Children.Add(body_circle);
 		
-		tbErrorIndicator.Text = mass.ToString();
+		tbErrorIndicator.Text = mass.ToString();*/
 	}
 }

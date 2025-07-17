@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MavraGUI.Controls"
+             mc:Ignorable="d"
+             x:Class="MavraGUI.Controls.ScientificFloatInput"
+             x:Name="Root">
+    <StackPanel>
+        <TextBlock Text="{Binding #Root.Text, Mode=TwoWay}" Margin="10, 1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"/>
+        
+        <StackPanel Orientation="Horizontal" Spacing="2">
+        
+        
+            <TextBox x:Name="MantissaTextBox" 
+                     Width="100"
+                     Text="{Binding #Root.Mantissa, Mode=TwoWay}"
+                     TextChanged="MantissaTextBox_OnTextChanged"/>
+            <TextBlock Text="E" VerticalAlignment="Center" Margin="2,0,2,0"/>
+            <NumericUpDown x:Name="ExponentNumericUpDown"
+                           FormatString="0;-#"
+                           Minimum="-38"
+                           Maximum="38"
+                           Increment="1"
+                           Value="{Binding #Root.Exponent, Mode=TwoWay}"/>
+        </StackPanel>
+    </StackPanel>
+    </UserControl>

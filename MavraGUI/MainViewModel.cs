@@ -71,9 +71,11 @@ public class MainViewModel : INotifyPropertyChanged
 	{
 		get => _mass;
 		set {
+			Console.WriteLine("Mass Updated");
 			if (Equals(value, _mass)) return;
 			_mass = value;
 			OnPropertyChanged();
+			Console.WriteLine(_mass);
 		} 
 	}  
 	

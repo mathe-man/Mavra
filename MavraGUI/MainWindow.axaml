@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mavraGui="clr-namespace:MavraGUI"
+        xmlns:controls="using:MavraGUI.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MavraGUI.MainWindow"
         x:DataType="mavraGui:MainViewModel"
@@ -24,15 +25,16 @@
         
         
         <GridSplitter Grid.Column="1" Width="5"/>
-        <Grid Grid.Column="1" Background="#EFEFEF">
-            <StackPanel HorizontalAlignment="Center">
+        <Grid Grid.Column="1" Background="DarkGray">
+            <StackPanel HorizontalAlignment="Stretch" Spacing="5">
+                <TextBox Text="{Binding Name}" Watermark="Object name"/>
+                <controls:ScientificFloatInput Value="{Binding Mass}" Text="Mass"/>
+                <controls:ScientificFloatInput Value="{Binding X}"    Text="X"/>
+                <controls:ScientificFloatInput Value="{Binding Y}"    Text="Y"/>
                 
-                <TextBox x:Name="tbNameInput" Text="{Binding Name}"/>
-                <TextBox x:Name="tbMassInput" Text="{Binding Mass}"/>
-                <TextBox x:Name="tbXPos"/>
-                <TextBox x:Name="tbYPos"/>
-                <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick"/>
+                <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick" HorizontalAlignment="Center"/>
                 
+
                 <TextBlock x:Name="tbErrorIndicator" Background="Red"></TextBlock>
             </StackPanel>
         </Grid>
