@@ -23,4 +23,8 @@
     <ItemGroup>
       <ProjectReference Include="..\MavraLib\MavraLib.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Windows\" />
+    </ItemGroup>
 </Project>
