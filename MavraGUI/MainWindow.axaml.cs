@@ -36,7 +36,7 @@ public partial class MainWindow : Window
 
 	private void BtnSimulate_OnClick(object? sender, RoutedEventArgs e)
 	{
-		(DataContext as MainViewModel)?.StartSimulation();
+		(DataContext as MainViewModel)?.PreSimulate();
 	}
 
 	private void BtnAnimate_OnClick(object? sender, RoutedEventArgs e)

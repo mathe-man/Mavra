@@ -157,7 +157,19 @@ public class MainViewModel : INotifyPropertyChanged
 		return true;
 	}
 
-	public void StartSimulation()
+	
+	
+	private int _evolutionToSimulate;
+	public int EvolutionToSimulate
+	{
+		get => _evolutionToSimulate;
+		set {
+			if (Equals(value, _evolutionToSimulate)) return;
+			_evolutionToSimulate = value;
+			OnPropertyChanged();
+		} 
+	}  
+	public void PreSimulate()
 	{
 		_evolutiveUniverse.ComputeEvolution(100000);
 	}

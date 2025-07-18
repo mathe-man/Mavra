@@ -45,7 +45,10 @@
                     <NumericUpDown Value="{Binding AnimationSpeed}" Minimum="-200" Maximum="200"/>
                 </StackPanel>
                 
-                <Button x:Name="btnSimulate" Content="Simulate from this seed" Click="BtnSimulate_OnClick"/>
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <Button x:Name="btnSimulate" Content="Simulate from this seed" Click="BtnSimulate_OnClick"/>
+                    <controls:ScientificFloatInput Value="{Binding EvolutionToSimulate}" Text="Number of evolution"/>
+                </StackPanel>
             </StackPanel>
 
         </Grid>
