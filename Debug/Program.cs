@@ -13,7 +13,7 @@ class Program
 		
 		Universe seed = new(6.67408E-11f, [a, b]);
 		EvolutiveUniverse evo = new(seed);
-		evo.ComputeEvolution(10000000);
+		evo.ComputeEvolution(10000);
 		
 		evo.EnterConsoleInspection();
 	}
