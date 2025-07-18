@@ -39,7 +39,7 @@ public partial class MainWindow : Window
 		(DataContext as MainViewModel)?.StartSimulation();
 	}
 
-	private void BtnAuto_OnClick(object? sender, RoutedEventArgs e)
+	private void BtnAnimate_OnClick(object? sender, RoutedEventArgs e)
 	{
 		(DataContext as MainViewModel)?.AnimateSimulation();
 	}

@@ -159,18 +159,32 @@ public class MainViewModel : INotifyPropertyChanged
 
 	public void StartSimulation()
 	{
-		_evolutiveUniverse.ComputeEvolution(2500);
+		_evolutiveUniverse.ComputeEvolution(100000);
 	}
 
+	
+	private int _animationSpeed;
+	public int AnimationSpeed
+	{
+		get => _animationSpeed;
+		set {
+			if (Equals(value, _animationSpeed)) return;
+			_animationSpeed = value;
+			OnPropertyChanged();
+		} 
+	}  
 	public void AnimateSimulation(int frame_milliseconds = 16) // 16 milliseconds for 60fps
 	{
+		if (timer == null || timer.IsEnabled)
+			timer?.Stop();
+		
 		timer = new DispatcherTimer
 		{
 			Interval = TimeSpan.FromMilliseconds(frame_milliseconds)
 		};
 		timer.Tick += (_, _) =>
 		{
-			if (!MoveIndex(1))
+			if (!MoveIndex(AnimationSpeed))
 				timer.Stop();
 			
 			Console.WriteLine($"Frame: {DateTime.Now - lastAnimationFrameTime}");
@@ -198,7 +212,6 @@ public class MainViewModel : INotifyPropertyChanged
 			circle.Fill = new SolidColorBrush(Colors.Red);
 			
 			UniverseGrid.Children.Add(circle);
-			Console.WriteLine("Grid child: " + UniverseGrid.Children.Count);
 		}
 	}
 }
