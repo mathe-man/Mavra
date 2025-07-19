@@ -11,7 +11,23 @@ public class Body
 
 	public string Name { get; set; } = "Body";
 	// The RGBA color
-	public Vector4 Color    { get; set; } = new Vector4(1, 1, 1, 1);	
+	private byte[] _color = [255, 255, 255, 255];
+	public byte[] Color
+	{
+		get { return _color;}
+		set
+		{
+			if (value.Length < 3)
+				return;
+			
+			_color = value;
+
+			if (_color.Length == 3)
+				// Add the Alpha component
+				_color = [_color[0], _color[1], _color[2], 255];
+				
+		}
+	} 
 
 
 	public Body(float mass, Vector2 position, float radius = 1f, Vector2? velocity = null)

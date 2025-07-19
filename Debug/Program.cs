@@ -4,10 +4,10 @@ using MavraLib;
 
 class Program
 {
-	private static Body a = new(500E6f, new(0, 0))
+	private static Body a = new(5E6f, new(0, 0))
 		{ Name = "A Body" };
 		
-	private static Body b = new (150E6f, new (5, 1), 1, new (0, 0.07f))
+	private static Body b = new (500E6f, new (5, 1), 1, new (0, 0.07f))
 		{ Name = "B Body" };
 	
 	
