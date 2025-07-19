@@ -16,7 +16,13 @@ class Program
 	
 	static void Main(string[] args)
 	{
-		DebugEvolution(args);
+		DebugStateGeneration(args);
+	}
+
+	static void DebugStateGeneration(string[]? args = null)
+	{
+		Console.WriteLine();
+		Console.WriteLine(universe.CalculateNextState());
 	}
 
 	static void DebugEvolution(string[]? args = null)
