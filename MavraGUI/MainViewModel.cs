@@ -117,11 +117,11 @@ public class MainViewModel : INotifyPropertyChanged
 	}
 
 	private Grid UniverseGrid;
-	public MainViewModel(Grid universGrid)
+	public MainViewModel(Grid universeGrid)
 	{
 		_evolutiveUniverse = new (_seed);
 		OnScreen = _seed;
-		UniverseGrid = universGrid;
+		UniverseGrid = universeGrid;
 	}
 
 	private DispatcherTimer? timer;
