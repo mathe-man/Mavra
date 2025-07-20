@@ -8,18 +8,14 @@ using Avalonia.Threading;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
+using MavraGUI.Windows;
 using MavraLib;
 
 namespace MavraGUI;
 
-public class MainViewModel : INotifyPropertyChanged
+public class MainViewModel : PropertyChanger
 {
-	// INotifyPropertyChanged, property changed handling
-	public event PropertyChangedEventHandler? PropertyChanged;
-	protected void OnPropertyChanged([CallerMemberName] string? propertyName = null) 
-		=> PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
+	
 	private Universe _onScreen;
 	public Universe OnScreen
 	{

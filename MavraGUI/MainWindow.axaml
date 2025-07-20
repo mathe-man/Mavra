@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mavraGui="clr-namespace:MavraGUI"
         xmlns:controls="using:MavraGUI.Controls"
+        xmlns:windows="clr-namespace:MavraGUI.Windows"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MavraGUI.MainWindow"
         x:DataType="mavraGui:MainViewModel"
@@ -57,32 +58,7 @@
         
         <GridSplitter Grid.Column="1" Background="#97A8B9"/>
         
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="3"/>
-                <RowDefinition Height="4*"/>
-            </Grid.RowDefinitions>
-            
-            <StackPanel Grid.Row="0" Spacing="5">
-                <TextBox Text="{Binding Name}" Watermark="Object name"/>
-                <controls:ScientificFloatInput Value="{Binding Mass}" Text="Mass"/>
-                <controls:ScientificFloatInput Value="{Binding Radius}" Text="Radius"/>
-                <controls:ScientificFloatInput Value="{Binding X}"    Text="X"/>
-                <controls:ScientificFloatInput Value="{Binding Y}"    Text="Y"/>
-                <controls:ScientificFloatInput Value="{Binding XVelocity}"    Text="X Velocity"/>
-                <controls:ScientificFloatInput Value="{Binding YVelocity}"    Text="Y Velocity"/>
-                
-                <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick"/>
-                
-            </StackPanel>
-            
-            <GridSplitter Grid.Row="1" Background="#97A8B9"/>
-            
-            <StackPanel Grid.Row="2">
-                <TextBlock Text="Universe" FontSize="23"/>
-            </StackPanel>
-        </Grid>
+        <windows:BodyCreator Grid.Column="2" Padding="5"/>
         
     </Grid>
 </Window>

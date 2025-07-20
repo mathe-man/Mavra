@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+            xmlns:controls="using:MavraGUI.Controls"
+            xmlns:local="using:MavraGUI.Windows"
+             
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MavraGUI.Windows.BodyCreator"
+             x:Name="Root">
+             
+    
+      
+        <StackPanel x:Name="Panel" Spacing="5">
+            <TextBox Text="{Binding #Root.BodyName}" Watermark="Object name"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.Mass}"        Text="Mass"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.Radius}"      Text="Radius"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.XPosition}"   Text="X"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.YPositon}"    Text="Y"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.XVelocity}"   Text="X Velocity"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.YVelocity}"   Text="Y Velocity"/>
+                
+            <Button x:Name="btnAddBody" Content="Add body" Click="BtnAddBody_OnClick"/>
+                
+        </StackPanel>
+</UserControl>
+
