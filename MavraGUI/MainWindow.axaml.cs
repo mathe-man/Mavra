@@ -16,14 +16,9 @@ public partial class MainWindow : Window
 	public MainWindow()
 	{
 		InitializeComponent();
-		DataContext = new MainViewModel(UniverseGrid);
-		
+		DataContext = new MainViewModel(UniverseGrid, BodyCreator);
 	}
 
-	private void BtnAddBody_OnClick(object? sender, RoutedEventArgs e)
-	{
-		(DataContext as MainViewModel)?.AddBody();
-	}
 
 	private void BtnPrevious_OnClick(object? sender, RoutedEventArgs e)
 	{

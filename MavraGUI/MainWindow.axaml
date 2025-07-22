@@ -58,7 +58,7 @@
         
         <GridSplitter Grid.Column="1" Background="#97A8B9"/>
         
-        <windows:BodyCreator Grid.Column="2" Padding="5"/>
+        <windows:BodyCreator x:Name="BodyCreator" Grid.Column="2" Padding="5"/>
         
     </Grid>
 </Window>

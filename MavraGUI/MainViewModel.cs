@@ -30,94 +30,18 @@ public class MainViewModel : PropertyChanger
 	
 
 	
-	
-	
-	private string _name;
-	public string Name
-	{
-		get => _name;
-		set {
-			if (Equals(value, _name)) return;
-			_name = value;
-			OnPropertyChanged();
-		} 
-	}  
-	
-	private float _x;
-	public float X
-	{
-		get => _x;
-		set
-		{
-			if (Equals(value, _x)) return;
-
-			_x = value;
-			OnPropertyChanged();
-		}
-	}  
-	
-	private float _y;
-	public float Y
-	{
-		get => _y;
-		set {
-			if (Equals(value, _y)) return;
-			_y = value;
-			OnPropertyChanged();
-		} 
-	}  
-	
-	private float _XVelocity;
-	public float XVelocity
-	{
-		get => _XVelocity;
-		set {
-			if (Equals(value, _XVelocity)) return;
-			_XVelocity = value;
-			OnPropertyChanged();
-		} 
-	}  
-	
-	private float _YVelocity;
-	public float YVelocity
-	{
-		get => _YVelocity;
-		set {
-			if (Equals(value, _YVelocity)) return;
-			_YVelocity = value;
-			OnPropertyChanged();
-		} 
-	}  
-	
-	private float _mass;
-	public float Mass
-	{
-		get => _mass;
-		set {
-			if (Equals(value, _mass)) return;
-			_mass = value;
-			OnPropertyChanged();
-		} 
-	}  
-	
-	private float _radius;
-	public float Radius
-	{
-		get => _radius;
-		set {
-			if (Equals(value, _radius)) return;
-			
-			_radius = value;
-			OnPropertyChanged();
-		} 
-	}
-
 	private Grid UniverseGrid;
-	public MainViewModel(Grid universeGrid)
+	public MainViewModel(Grid universeGrid, BodyCreator bodyCreator)
 	{
 		_evolutiveUniverse = new (_seed);
 		OnScreen = _seed;
 		UniverseGrid = universeGrid;
+
+
+		bodyCreator.BodyCreated += (sender, body) =>
+		{
+			AddBody(body);
+		};
 	}
 
 	private DispatcherTimer? timer;
@@ -125,12 +49,9 @@ public class MainViewModel : PropertyChanger
 	private Universe _seed = new Universe(6.67408E-11f);
 	private EvolutiveUniverse _evolutiveUniverse;
 	private int index = 0;
-	public void AddBody()
+	public void AddBody(Body body)
 	{
-		Body b = new Body(Mass, new Vector2(X, Y), Radius, new Vector2(XVelocity, YVelocity));
-		b.Name = string.IsNullOrEmpty(Name) ? "Object" : Name;
-		
-		_seed.Bodies.Add(b);
+		_seed.Bodies.Add(body);
 		DrawUniverse(_seed);
 		
 		Console.WriteLine(_seed);
