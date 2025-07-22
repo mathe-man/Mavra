@@ -14,6 +14,16 @@
       
         <StackPanel x:Name="Panel" Spacing="5">
             <TextBox Text="{Binding #Root.BodyName}" Watermark="Object name"/>
+            
+            <StackPanel>
+                <Slider Minimum="0" Maximum="1" Height="20"
+                        Value="{Binding #Root.R}"/>
+                <Slider Minimum="0" Maximum="1" Height="20"
+                        Value="{Binding #Root.G}"/>
+                <Slider Minimum="0" Maximum="1" Height="20"
+                        Value="{Binding #Root.B}"/>
+            </StackPanel>
+            
             <controls:ScientificFloatInput Value="{Binding #Root.Mass}"        Text="Mass"
                                            Mantissa="1"/>
             <controls:ScientificFloatInput Value="{Binding #Root.Radius}"      Text="Radius"

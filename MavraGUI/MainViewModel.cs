@@ -217,7 +217,7 @@ public class MainViewModel : PropertyChanger
 			circle.Width  = body.Radius;
 
 			circle.Margin = new Thickness(body.Position.X, 0, 0, body.Position.Y);
-			circle.Fill = new SolidColorBrush(Colors.Red);
+			circle.Fill = new SolidColorBrush(new Color(255, body.Color[1], body.Color[2], body.Color[3]));
 			
 			UniverseGrid.Children.Add(circle);
 		}

@@ -7,6 +7,7 @@ using Avalonia.Controls;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using MavraGUI.Controls;
 using MavraLib;
 
@@ -26,6 +27,36 @@ public partial class BodyCreator : UserControl
 				get => GetValue(BodyNameProperty);
 				set => SetValue(BodyNameProperty, value);
 			}
+
+
+			#region Color
+
+				public static readonly StyledProperty<float> RProperty = AvaloniaProperty.Register<BodyCreator, float>(
+					nameof(R), 1, defaultBindingMode: BindingMode.TwoWay);
+				public float R
+				{
+					get => GetValue(RProperty);
+					set => SetValue(RProperty, value);
+				}
+
+
+				public static readonly StyledProperty<float> GProperty = AvaloniaProperty.Register<BodyCreator, float>(
+					nameof(G), 1, defaultBindingMode: BindingMode.TwoWay);
+				public float G
+				{
+					get => GetValue(GProperty);
+					set => SetValue(GProperty, value);
+				}
+
+				public static readonly StyledProperty<float> BProperty = AvaloniaProperty.Register<BodyCreator, float>(
+					nameof(B),  1, defaultBindingMode: BindingMode.TwoWay);
+				public float B
+				{
+					get => GetValue(BProperty);
+					set => SetValue(BProperty, value);
+				}
+			
+			#endregion
 
 				
 			public static readonly StyledProperty<float> MassProperty = AvaloniaProperty.Register<BodyCreator, float>(
@@ -106,12 +137,15 @@ public partial class BodyCreator : UserControl
 		Body created = new(Mass, new(XPosition, YPositon), Radius, new(XVelocity, YVelocity));
 		if (!String.IsNullOrWhiteSpace(BodyName))
 			created.Name = BodyName;
+
+		created.Color = GetColorArray();
 		
 		BodyCreated?.Invoke(this, created);
 		
 		ResetFields();
 
 		Console.WriteLine(created);
+		Console.WriteLine(created.Color[1]);
 	}
 
 	public void ResetFields()
@@ -124,5 +158,14 @@ public partial class BodyCreator : UserControl
 		YPositon = 0;
 		XVelocity = 0;
 		YVelocity = 0;
+	}
+
+	private byte[] GetColorArray()
+		=> [255, (byte)(R * 255), (byte)(G * 255), (byte)(B * 255)];
+
+	private Color GetColor()
+	{
+		var array = GetColorArray();
+		return new Color(array[0], array[1], array[2], array[3]);
 	}
 }

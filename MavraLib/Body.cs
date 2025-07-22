@@ -10,7 +10,7 @@ public class Body
 	public Vector2 Velocity { get; private set; }
 
 	public string Name { get; set; } = "Body";
-	// The RGBA color
+	// The ARGB color
 	private byte[] _color = [255, 255, 255, 255];
 	public byte[] Color
 	{
