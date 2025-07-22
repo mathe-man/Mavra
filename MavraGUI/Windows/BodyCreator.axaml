@@ -14,8 +14,10 @@
       
         <StackPanel x:Name="Panel" Spacing="5">
             <TextBox Text="{Binding #Root.BodyName}" Watermark="Object name"/>
-            <controls:ScientificFloatInput Value="{Binding #Root.Mass}"        Text="Mass"/>
-            <controls:ScientificFloatInput Value="{Binding #Root.Radius}"      Text="Radius"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.Mass}"        Text="Mass"
+                                           Mantissa="1"/>
+            <controls:ScientificFloatInput Value="{Binding #Root.Radius}"      Text="Radius"
+                                           Mantissa="1" Exponent="1"/>
             <controls:ScientificFloatInput Value="{Binding #Root.XPosition}"   Text="X"/>
             <controls:ScientificFloatInput Value="{Binding #Root.YPositon}"    Text="Y"/>
             <controls:ScientificFloatInput Value="{Binding #Root.XVelocity}"   Text="X Velocity"/>

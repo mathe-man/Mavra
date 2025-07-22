@@ -12,7 +12,7 @@ namespace MavraGUI.Controls
         public static readonly StyledProperty<string> MantissaProperty =
             AvaloniaProperty.Register<ScientificFloatInput, string>(
                 nameof(Mantissa), 
-                "1.0",
+                "0.0",
                 defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly StyledProperty<int> ExponentProperty =
@@ -24,7 +24,7 @@ namespace MavraGUI.Controls
         public static readonly StyledProperty<float> ValueProperty =
             AvaloniaProperty.Register<ScientificFloatInput, float>(
                 nameof(Value), 
-                1.0f,
+                0.0f,
                 defaultBindingMode: BindingMode.TwoWay);
         
         public static readonly StyledProperty<string> TextProperty =
