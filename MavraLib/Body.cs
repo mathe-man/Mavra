@@ -37,7 +37,7 @@ public class Body
 		this.Position = position;
 		this.Velocity = velocity ?? new Vector2();
 	}
-	public Body CalculateNextState(Universe universe)
+	public Body CalculateNextState(Universe universe, float deltaTime)
 	{
 		var next = new Body(Mass, Position, Radius, Velocity);
 		next.Name = Name;
@@ -49,8 +49,8 @@ public class Body
 					velocity += MavraMath.AccelerationFromForce(MavraMath.ForceBetween(this, body, universe), Mass);
 					
 		
-		next.Position += this.Velocity;
-		next.Velocity += velocity;
+		next.Position += this.Velocity * deltaTime;
+		next.Velocity += velocity * deltaTime;
 		
 		return next;
 	}

@@ -17,11 +17,11 @@ public class Universe
 			Bodies = bodies;
 	}
 	
-	public Universe CalculateNextState()
+	public Universe CalculateNextState(float deltaTime)
 	{
 		var next = new Universe(GravitationalConstant);
 		foreach (var b in Bodies)
-			next.Bodies.Add(b.CalculateNextState(this));
+			next.Bodies.Add(b.CalculateNextState(this, deltaTime));
 		
 		return next;
 	}
@@ -94,18 +94,11 @@ public class EvolutiveUniverse
 		Evolution = [Seed];
 	}
 
-	public void ComputeEvolution(int evolutionCount)
+	public void ComputeEvolution(int evolutionCount, float fixedDeltaTime)
 	{
-		int progress_percent = 0;
 		for (int i = 0; i < evolutionCount; i++)
 		{
-			Evolution.Add(Evolution[i].CalculateNextState());
-			
-			if (i % evolutionCount / 20 == 0) // Every 5% of the computation
-			{
-				progress_percent += 5;
-				Console.WriteLine($"Evolution computing progress: {progress_percent}%");
-			}
+			Evolution.Add(Evolution[i].CalculateNextState(fixedDeltaTime));
 		}
 	}
 

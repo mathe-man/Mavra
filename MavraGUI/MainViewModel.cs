@@ -88,7 +88,7 @@ public class MainViewModel : PropertyChanger
 	}  
 	public void PreSimulate()
 	{
-		_evolutiveUniverse.ComputeEvolution(100000);
+		_evolutiveUniverse.ComputeEvolution(100000, 1);
 	}
 
 	
