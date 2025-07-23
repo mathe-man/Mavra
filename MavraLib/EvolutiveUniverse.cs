@@ -13,7 +13,7 @@ public class EvolutiveUniverse
 		Evolution = [Seed];
 	}
 
-	public void ComputeEvolution(int evolutionCount, float fixedDeltaTime)
+	public void ComputeEvolution(int evolutionCount, float fixedDeltaTime = 0.1f)
 	{
 		for (int i = 0; i < evolutionCount; i++)
 		{
