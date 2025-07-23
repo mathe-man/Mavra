@@ -22,12 +22,12 @@ class Program
 	static void DebugStateGeneration(string[]? args = null)
 	{
 		Console.WriteLine();
-		Console.WriteLine(universe.CalculateNextState());
+		Console.WriteLine(universe.CalculateNextState(1));
 	}
 
 	static void DebugEvolution(string[]? args = null)
 	{
-		evo.ComputeEvolution(10000000);
+		evo.ComputeEvolution(10000000, 1);
 		
 		evo.EnterConsoleInspection();
 	}
